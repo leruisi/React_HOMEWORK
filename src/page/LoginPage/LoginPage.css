@@ -1,0 +1,15 @@
+.form{
+    width: 50%;
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+
+}
+
+
+.button{
+    background-color: cadetblue;
+    border-radius: 10px;
+
+}

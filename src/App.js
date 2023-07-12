@@ -1,11 +1,13 @@
 import React from 'react';
-
+import LoginPage from './page/LoginPage/LoginPage'
 const App = () => {
-  return (
-      <div>
+    return (
+        <div>
+            <LoginPage/>
 
-      </div>
-  );
+
+        </div>
+    );
 };
 
-export  {App};
+export {App};
