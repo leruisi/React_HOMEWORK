@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-
-const LoginPage= () => {
+const LoginPage = () => {
     const [cars, setCars] = useState([]);
     const [newCar, setNewCar] = useState({ brand: '', price: '', year: '' });
     const [updateCar, setUpdateCar] = useState({ id: '', brand: '', price: '', year: '' });
-
 
     useEffect(() => {
         fetchCars();
     }, []);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     const fetchCars = async () => {
         try {
-            const response = await fetch('http://owu.linkpc.net/carsAPI/v1/cars');
+            const response = await fetch('https://owu.linkpc.net/carsAPI/v1/cars');
             const data = await response.json();
             setCars(data);
         } catch (error) {
@@ -23,7 +25,7 @@ const LoginPage= () => {
 
     const createCar = async () => {
         try {
-            await fetch('http://owu.linkpc.net/carsAPI/v1/cars', {
+            await fetch('https://owu.linkpc.net/carsAPI/v1/cars', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,10 +39,9 @@ const LoginPage= () => {
         }
     };
 
-    // Видалити машину за ідентифікатором
     const deleteCar = async (id) => {
         try {
-            await fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${id}`, {
+            await fetch(`https://owu.linkpc.net/carsAPI/v1/cars/${id}`, {
                 method: 'DELETE',
             });
             fetchCars();
@@ -49,10 +50,9 @@ const LoginPage= () => {
         }
     };
 
-    // Оновити машину за ідентифікатором
     const updateCarById = async () => {
         try {
-            await fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${updateCar.id}`, {
+            await fetch(`https://owu.linkpc.net/carsAPI/v1/cars/${updateCar.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -69,11 +69,10 @@ const LoginPage= () => {
     return (
         <div>
             <h2>Створення машини</h2>
-            <form onSubmit={createCar}  >
+            <form onSubmit={handleSubmit}>
                 <label>
                     Марка:
                     <input
-
                         type="text"
                         value={newCar.brand}
                         onChange={(e) => setNewCar({ ...newCar, brand: e.target.value })}
@@ -82,7 +81,6 @@ const LoginPage= () => {
                 <label>
                     Ціна:
                     <input
-
                         type="text"
                         value={newCar.price}
                         onChange={(e) => setNewCar({ ...newCar, price: e.target.value })}
@@ -91,13 +89,14 @@ const LoginPage= () => {
                 <label>
                     Рік:
                     <input
-
                         type="text"
                         value={newCar.year}
                         onChange={(e) => setNewCar({ ...newCar, year: e.target.value })}
                     />
                 </label>
-                <button type="submit">Створити</button>
+                <button type="submit" onClick={createCar}>
+                    Створити
+                </button>
             </form>
 
             <h2>Список машин</h2>
@@ -111,11 +110,10 @@ const LoginPage= () => {
             </ul>
 
             <h2>Оновлення машини</h2>
-            <form onSubmit={updateCarById} >
+            <form onSubmit={handleSubmit}>
                 <label>
                     Ідентифікатор:
                     <input
-
                         type="text"
                         value={updateCar.id}
                         onChange={(e) => setUpdateCar({ ...updateCar, id: e.target.value })}
@@ -124,7 +122,6 @@ const LoginPage= () => {
                 <label>
                     Марка:
                     <input
-
                         type="text"
                         value={updateCar.brand}
                         onChange={(e) => setUpdateCar({ ...updateCar, brand: e.target.value })}
@@ -133,7 +130,6 @@ const LoginPage= () => {
                 <label>
                     Ціна:
                     <input
-
                         type="text"
                         value={updateCar.price}
                         onChange={(e) => setUpdateCar({ ...updateCar, price: e.target.value })}
@@ -142,19 +138,17 @@ const LoginPage= () => {
                 <label>
                     Рік:
                     <input
-
                         type="text"
                         value={updateCar.year}
                         onChange={(e) => setUpdateCar({ ...updateCar, year: e.target.value })}
                     />
                 </label>
-                <button
-
-                    type="submit">Оновити</button>
+                <button type="submit" onClick={updateCarById}>
+                    Оновити
+                </button>
             </form>
         </div>
     );
 };
 
 export default LoginPage;
-
