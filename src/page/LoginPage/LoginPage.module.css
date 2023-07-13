@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    text-align: center;
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 40vw;
+    height: 60vh;
+    background-color: lightgray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.submit {
+    width: 80%;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+.button{
+    background-color: cadetblue;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 5vh;
+    width: 10vw;
+
+}
+.button :hover{
+    background-color: rgba(196, 235, 190, 0.5) ;
+}
