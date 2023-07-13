@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 const LoginPage= () => {
     const [cars, setCars] = useState([]);
     const [newCar, setNewCar] = useState({ make: '', model: '', year: '' });
@@ -68,10 +69,11 @@ const LoginPage= () => {
     return (
         <div>
             <h2>Створення машини</h2>
-            <form onSubmit={createCar}>
+            <form onSubmit={createCar} >
                 <label>
                     Марка:
                     <input
+
                         type="text"
                         value={newCar.make}
                         onChange={(e) => setNewCar({ ...newCar, make: e.target.value })}
@@ -80,6 +82,7 @@ const LoginPage= () => {
                 <label>
                     Модель:
                     <input
+
                         type="text"
                         value={newCar.model}
                         onChange={(e) => setNewCar({ ...newCar, model: e.target.value })}
@@ -88,6 +91,7 @@ const LoginPage= () => {
                 <label>
                     Рік:
                     <input
+
                         type="text"
                         value={newCar.year}
                         onChange={(e) => setNewCar({ ...newCar, year: e.target.value })}
@@ -107,10 +111,11 @@ const LoginPage= () => {
             </ul>
 
             <h2>Оновлення машини</h2>
-            <form onSubmit={updateCarById}>
+            <form onSubmit={updateCarById} >
                 <label>
                     Ідентифікатор:
                     <input
+
                         type="text"
                         value={updateCar.id}
                         onChange={(e) => setUpdateCar({ ...updateCar, id: e.target.value })}
@@ -119,6 +124,7 @@ const LoginPage= () => {
                 <label>
                     Марка:
                     <input
+
                         type="text"
                         value={updateCar.make}
                         onChange={(e) => setUpdateCar({ ...updateCar, make: e.target.value })}
@@ -127,6 +133,7 @@ const LoginPage= () => {
                 <label>
                     Модель:
                     <input
+
                         type="text"
                         value={updateCar.model}
                         onChange={(e) => setUpdateCar({ ...updateCar, model: e.target.value })}
@@ -135,12 +142,15 @@ const LoginPage= () => {
                 <label>
                     Рік:
                     <input
+
                         type="text"
                         value={updateCar.year}
                         onChange={(e) => setUpdateCar({ ...updateCar, year: e.target.value })}
                     />
                 </label>
-                <button type="submit">Оновити</button>
+                <button
+
+                    type="submit">Оновити</button>
             </form>
         </div>
     );
