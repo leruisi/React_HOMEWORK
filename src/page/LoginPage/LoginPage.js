@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 
 const LoginPage= () => {
     const [cars, setCars] = useState([]);
-    const [newCar, setNewCar] = useState({ make: '', model: '', year: '' });
-    const [updateCar, setUpdateCar] = useState({ id: '', make: '', model: '', year: '' });
+    const [newCar, setNewCar] = useState({ brand: '', price: '', year: '' });
+    const [updateCar, setUpdateCar] = useState({ id: '', brand: '', price: '', year: '' });
 
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const LoginPage= () => {
                 },
                 body: JSON.stringify(newCar),
             });
-            setNewCar({ make: '', model: '', year: '' });
+            setNewCar({ brand: '', price: '', year: '' });
             fetchCars();
         } catch (error) {
             console.error('Помилка при створенні машини:', error);
@@ -59,7 +59,7 @@ const LoginPage= () => {
                 },
                 body: JSON.stringify(updateCar),
             });
-            setUpdateCar({ id: '', make: '', model: '', year: '' });
+            setUpdateCar({ id: '', brand: '', price: '', year: '' });
             fetchCars();
         } catch (error) {
             console.error('Помилка при оновленні машини:', error);
@@ -69,23 +69,23 @@ const LoginPage= () => {
     return (
         <div>
             <h2>Створення машини</h2>
-            <form onSubmit={createCar} >
+            <form onSubmit={createCar}  >
                 <label>
                     Марка:
                     <input
 
                         type="text"
-                        value={newCar.make}
-                        onChange={(e) => setNewCar({ ...newCar, make: e.target.value })}
+                        value={newCar.brand}
+                        onChange={(e) => setNewCar({ ...newCar, brand: e.target.value })}
                     />
                 </label>
                 <label>
-                    Модель:
+                    Ціна:
                     <input
 
                         type="text"
-                        value={newCar.model}
-                        onChange={(e) => setNewCar({ ...newCar, model: e.target.value })}
+                        value={newCar.price}
+                        onChange={(e) => setNewCar({ ...newCar, price: e.target.value })}
                     />
                 </label>
                 <label>
@@ -104,7 +104,7 @@ const LoginPage= () => {
             <ul>
                 {cars.map((car) => (
                     <li key={car.id}>
-                        {car.make} - {car.model} ({car.year}){' '}
+                        {car.brand} - {car.price} ({car.year}){' '}
                         <button onClick={() => deleteCar(car.id)}>Видалити</button>
                     </li>
                 ))}
@@ -126,17 +126,17 @@ const LoginPage= () => {
                     <input
 
                         type="text"
-                        value={updateCar.make}
-                        onChange={(e) => setUpdateCar({ ...updateCar, make: e.target.value })}
+                        value={updateCar.brand}
+                        onChange={(e) => setUpdateCar({ ...updateCar, brand: e.target.value })}
                     />
                 </label>
                 <label>
-                    Модель:
+                    Ціна:
                     <input
 
                         type="text"
-                        value={updateCar.model}
-                        onChange={(e) => setUpdateCar({ ...updateCar, model: e.target.value })}
+                        value={updateCar.price}
+                        onChange={(e) => setUpdateCar({ ...updateCar, price: e.target.value })}
                     />
                 </label>
                 <label>
