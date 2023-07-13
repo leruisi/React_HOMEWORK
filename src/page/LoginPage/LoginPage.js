@@ -31,7 +31,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div className={style.wraaper}>
+        <div className={style.wrapper}>
             <form className={style.form} onSubmit={handleSubmit}>
                 <label>
                     Name
@@ -48,7 +48,7 @@ const LoginPage = () => {
                     <input type="text" className={style.submit} ref={commentRef} onChange={handleInputChange} />
                 </label>
 
-                <button type="submit" className={style.burron} disabled={!isFormValid}>
+                <button type="submit" className={style.button} disabled={!isFormValid}>
                     Click
                 </button>
             </form>
