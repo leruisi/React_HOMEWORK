@@ -40,15 +40,14 @@ const Cars = () => {
         }
     };
 
-    const handleUpdate = async (id, data) => {
+    const handleUpdate = async () => {
         try {
-            await updateCar(id, data);
+            await updateCar(updateCar.id, updateCar);
             fetchCarData();
         } catch (error) {
             console.error('Ошибка при обновлении машины:', error);
         }
     };
-
 
     return (
         <div>
@@ -97,16 +96,13 @@ const Cars = () => {
                     Рік:
                     <input type="text" name="year" value={updateCar.year} onChange={(e) => setUpdateCar({ ...updateCar, year: e.target.value })} />
                 </label>
-                <button type="submit" onClick={() => handleUpdate(updateCar.id, updateCar)}>
+                <button type="submit" onClick={handleUpdate}>
                     Оновити
                 </button>
-
-
             </form>
         </div>
     );
 };
 
 export default Cars;
-
 
