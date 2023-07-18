@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://jsonplaceholder.typicode.com/comment';
+const API_BASE_URL = 'http://jsonplaceholder.typicode.com/comments'; // Змінено URL
+
 const CommentService = {
     createComment: async (commentData) => {
         try {
@@ -12,4 +13,4 @@ const CommentService = {
     },
 };
 
-export { CommentService};
+export { CommentService };
