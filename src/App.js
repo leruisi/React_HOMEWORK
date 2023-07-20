@@ -4,6 +4,7 @@ import Todos from './components/Todos';
 import Albums from './components/Albums';
 import Comments from './components/Comments';
 import Post from './components/Posts';
+// import style from './components/style.moduls.css'
 
 const App = () => {
     return (
@@ -11,7 +12,7 @@ const App = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Главная</Link>
+                        <Link to="/">Головна</Link>
                     </li>
                     <li>
                         <Link to="/todos">Todos</Link>
@@ -39,8 +40,8 @@ const App = () => {
 const Home = () => {
     return (
         <div>
-            <h2>Главная страница</h2>
-            <p>На главной странице отсутствует контент.</p>
+            <h2>Тут має бути якийсь контент</h2>
+            <p >На головній сторонці відсутній контент бо він в розробці, вибачте за незручності </p>
         </div>
     );
 };
