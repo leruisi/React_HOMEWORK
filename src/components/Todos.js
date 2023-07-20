@@ -12,6 +12,7 @@ const Todos = () => {
             .catch((error) => console.error('Error fetching todos', error));
     }, []);
 
+
     return (
         <div>
             <h2>Todos</h2>
